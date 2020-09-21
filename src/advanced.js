@@ -2,7 +2,7 @@
 
 module.exports = [
   require('babel-plugin-preval'),
-  require('../plugins/dotenv'),
+  require('@sitearcade/dotenv/babel'),
   [
     require('babel-plugin-module-resolver'), {
       cwd: 'packagejson',

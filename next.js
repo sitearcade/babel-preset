@@ -1,11 +1,20 @@
 // import
 
-const {packageUses, compact} = require('@arc/lofi');
+const find = require('find-config');
+
+// config
+
+const packageJson = find.require('package.json') || {};
+const inUse = [
+  ...Object.keys(packageJson.dependencies || {}),
+  ...Object.keys(packageJson.devDependencies || {}),
+];
 
 // fns
 
-const packageUsesArr = (pkg, req) => (
-  packageUses(pkg) ? require(req) : []
+const compact = (arr) => arr.filter(Boolean);
+const packageUses = (pkg, req) => (
+  inUse.includes(pkg) ? require(req) : []
 );
 
 // export
@@ -24,7 +33,7 @@ module.exports = (api) => {
       ...require('./src/advanced'),
       ...require('./src/proposals'),
       ...require('./src/libs'),
-      ...packageUsesArr('styled-components', './src/styled'),
+      ...packageUses('styled-components', './src/styled'),
     ]),
   };
 };
