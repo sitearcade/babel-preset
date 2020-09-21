@@ -1,10 +1,10 @@
-# @sitearcade/babel-preset-arcade
+# @sitearcade/babel-preset
 
 Our browserslist config.
 
 ## Installation
 
-1. `npm i -D @sitearcade/babel-preset-arcade`
+1. `npm i -D @sitearcade/babel-preset`
 2. Add to `package.json` or `babel.config.js`:
 
 ```json
@@ -22,11 +22,11 @@ module.exports = (api) => {
   api.cache(true);
 
   return {
-    presets: ['module:@sitearcade/babel-preset-arcade'],
+    presets: ['module:@sitearcade/babel-preset'],
   };
 };
 ```
 
 ## Variants
 
-This package also exports a slim version for use with NextJS: `@sitearcade/babel-preset-arcade/next`.
+This package also exports a slim version for use with NextJS: `@sitearcade/babel-preset/next`.

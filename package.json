@@ -1,11 +1,11 @@
 {
   "name": "@sitearcade/babel-preset",
   "version": "0.1.0",
-  "description": "SiteArcade's babel-presets.",
+  "description": "SiteArcade's babel presets.",
   "license": "MIT",
   "homepage": "https://sitearcade.com",
   "repository": "github:sitearcade/babel-preset",
-  "bugs": "https://github.com/sitearcade/babel-preset-arcade/issues",
+  "bugs": "https://github.com/sitearcade/babel-preset/issues",
   "author": {
     "name": "Mike Stop Continues",
     "email": "mike@sitearcade.com",
