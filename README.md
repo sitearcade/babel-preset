@@ -11,7 +11,7 @@ Our browserslist config.
 {
   "babel": {
     "presets": [
-      "module:@sitearcade/babel-preset-arcade"
+      "module:@sitearcade/babel-preset"
     ]
   }
 }
