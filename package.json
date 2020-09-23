@@ -28,12 +28,13 @@
     "@babel/plugin-proposal-optional-chaining": "7.11.0",
     "@babel/plugin-proposal-partial-application": "7.10.5",
     "@babel/plugin-proposal-pipeline-operator": "7.10.5",
+    "@babel/plugin-proposal-private-methods": "7.10.4",
     "@babel/plugin-proposal-throw-expressions": "7.10.4",
     "@babel/plugin-syntax-top-level-await": "7.10.4",
     "@babel/preset-env": "7.11.5",
     "@babel/preset-flow": "7.10.4",
     "@babel/preset-react": "7.10.4",
-    "@sitearcade/dotenv": "0.0.2",
+    "@sitearcade/dotenv": "0.1.0",
     "babel-plugin-date-fns": "2.0.0",
     "babel-plugin-inline-dotenv": "1.6.0",
     "babel-plugin-lodash": "3.3.4",
@@ -52,7 +53,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.11.6",
-    "@sitearcade/eslint-config": "0.2.0",
+    "@sitearcade/eslint-config": "0.2.1",
     "babel-eslint": "11.0.0-beta.2",
     "eslint": "7.9.0",
     "eslint-import-resolver-lerna": "1.1.0",
@@ -68,7 +69,7 @@
     "eslint-plugin-optimize-regex": "1.2.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-ramda": "2.5.1",
-    "eslint-plugin-react": "7.20.6",
+    "eslint-plugin-react": "7.21.0",
     "eslint-plugin-react-hooks": "4.1.2"
   },
   "eslintConfig": {

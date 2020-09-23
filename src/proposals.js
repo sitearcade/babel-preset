@@ -13,5 +13,6 @@ module.exports = [
   require('@babel/plugin-proposal-partial-application'),
   require('@babel/plugin-proposal-throw-expressions'),
   require('@babel/plugin-proposal-class-properties'),
+  require('@babel/plugin-proposal-private-methods'),
   require('@babel/plugin-syntax-top-level-await'),
 ];

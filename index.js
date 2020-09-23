@@ -1,6 +1,6 @@
 // export
 
-module.exports = (api) => {
+module.exports = (api, {sourceMaps = true}) => {
   api.assertVersion(7);
   api.cache.using(() => process.env.NODE_ENV);
 
@@ -18,10 +18,10 @@ module.exports = (api) => {
     ],
 
     env: {
-      development: {
+      development: sourceMaps ? {
         sourceMaps: true,
         plugins: [require('babel-plugin-source-map-support')],
-      },
+      } : {},
     },
   };
 };
