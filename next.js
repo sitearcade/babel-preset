@@ -34,6 +34,11 @@ module.exports = (api) => {
       ...require('./src/proposals'),
       ...require('./src/libs'),
       ...packageUses('styled-components', './src/styled'),
+      [
+        require('babel-plugin-inline-react-svg'), {
+          plugins: [{inlineStyles: {onlyMatchedOnce: false}}],
+        },
+      ],
     ]),
   };
 };
