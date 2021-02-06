@@ -21,15 +21,9 @@
   "dependencies": {
     "@babel/cli": "^7.12.13",
     "@babel/node": "^7.12.13",
-    "@babel/plugin-proposal-class-properties": "^7.12.13",
     "@babel/plugin-proposal-export-default-from": "^7.12.13",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.12.13",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.13",
-    "@babel/plugin-proposal-optional-chaining": "^7.12.13",
     "@babel/plugin-proposal-partial-application": "^7.12.13",
-    "@babel/plugin-proposal-private-methods": "^7.12.13",
     "@babel/plugin-proposal-throw-expressions": "^7.12.13",
-    "@babel/plugin-syntax-top-level-await": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-flow": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
@@ -54,10 +48,7 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/core": "7.12.13",
-    "@sitearcade/eslint-config": "0.3.0",
-    "babel-eslint": "11.0.0-beta.2",
-    "eslint": "7.19.0"
+    "@sitearcade/eslint-config": "0.3.0"
   },
   "eslintConfig": {
     "extends": [
