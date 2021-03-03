@@ -1,27 +1,26 @@
+// import
+
+const {compact, getTargets, getReactOpts, envOpts} = require('./src/utils');
+
 // export
 
-module.exports = (api, {sourceMaps = true}) => {
+module.exports = (api, {sourceMaps}) => {
   api.assertVersion(7);
   api.cache.using(() => process.env.NODE_ENV);
 
   return {
+    sourceMaps: sourceMaps !== false,
+    targets: getTargets(api),
+
     presets: [
-      [require('@babel/preset-env'), {targets: {node: true}}],
-      [require('@babel/preset-react'), {}],
-      [require('@babel/preset-flow'), {all: true}],
+      [require('@babel/preset-env'), envOpts],
+      require('@babel/preset-typescript'),
+      [require('@babel/preset-react'), getReactOpts(api)],
     ],
 
-    plugins: [
-      ...require('./src/advanced'),
-      ...require('./src/proposals'),
-      ...require('./src/libs'),
-    ],
-
-    env: {
-      development: sourceMaps ? {
-        sourceMaps: true,
-        plugins: [require('babel-plugin-source-map-support')],
-      } : {},
-    },
+    plugins: compact([
+      ...require('./src/plugins'),
+      sourceMaps === false ? null : require('babel-plugin-source-map-support'),
+    ]),
   };
 };
