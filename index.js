@@ -10,7 +10,8 @@ module.exports = (api, {sourceMaps}) => {
 
   return {
     sourceMaps: sourceMaps !== false,
-    targets: getTargets(api),
+    // FIXME: [BABEL] .targets is not allowed in preset options
+    // targets: getTargets(api),
 
     presets: [
       [require('@babel/preset-env'), envOpts],
