@@ -4,23 +4,24 @@ const {compact, getTargets, getReactOpts, envOpts} = require('./src/utils');
 
 // export
 
-module.exports = (api, {sourceMaps}) => {
+module.exports = (api, {sourceMaps = true}) => {
   api.assertVersion(7);
   api.cache.using(() => process.env.NODE_ENV);
 
   return {
-    sourceMaps: sourceMaps !== false,
+    sourceMaps,
     // FIXME: [BABEL] .targets is not allowed in preset options
     // targets: getTargets(api),
 
     presets: [
       [require('@babel/preset-env'), envOpts],
+      require('@babel/preset-typescript'),
       [require('@babel/preset-react'), getReactOpts(api)],
     ],
 
     plugins: compact([
       ...require('./src/plugins'),
-      sourceMaps === false ? null : require('babel-plugin-source-map-support'),
+      sourceMaps && require('babel-plugin-source-map-support'),
     ]),
   };
 };
