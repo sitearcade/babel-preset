@@ -13,14 +13,14 @@ module.exports = (api, {sourceMaps = true}) => {
     // FIXME: [BABEL] .targets is not allowed in preset options
     // targets: getTargets(api),
 
-    presets: [
+    presets: compact([
       [require('@babel/preset-env'), envOpts],
       ifUses('typescript', require('@babel/preset-typescript')),
       ifUses(
         'react',
         [require('@babel/preset-react'), getReactOpts(api)],
       ),
-    ],
+    ]),
 
     plugins: compact([
       ...require('./src/plugins'),
