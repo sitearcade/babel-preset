@@ -1,6 +1,6 @@
 // import
 
-const {compact, getTargets, getReactOpts, envOpts} = require('./src/utils');
+const {compact, getReactOpts, envOpts} = require('./src/utils');
 
 // export
 
@@ -10,11 +10,10 @@ module.exports = (api, {sourceMaps}) => {
 
   return {
     sourceMaps: sourceMaps !== false,
-    // FIXME: [BABEL] .targets is not allowed in preset options
-    // targets: getTargets(api),
 
     presets: [
       [require('@babel/preset-env'), envOpts],
+      require('@babel/preset-typescript'),
       [require('@babel/preset-react'), getReactOpts(api)],
     ],
 
