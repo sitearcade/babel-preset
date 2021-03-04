@@ -8,6 +8,8 @@ module.exports = (api, {sourceMaps = true}) => {
   api.assertVersion(7);
   api.cache.using(() => process.env.NODE_ENV);
 
+  const isTest = process.env.NODE_ENV?.startsWith('test');
+
   return {
     sourceMaps,
 
@@ -22,7 +24,7 @@ module.exports = (api, {sourceMaps = true}) => {
 
     plugins: compact([
       ...require('./src/plugins'),
-      sourceMaps && require('babel-plugin-source-map-support'),
+      isTest && sourceMaps && require('babel-plugin-source-map-support'),
     ]),
   };
 };
