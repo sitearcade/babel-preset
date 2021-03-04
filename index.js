@@ -8,7 +8,7 @@ module.exports = (api, {sourceMaps = true}) => {
   api.assertVersion(7);
   api.cache.using(() => process.env.NODE_ENV);
 
-  const isTest = process.env.NODE_ENV?.startsWith('test');
+  const isTest = process.env.NODE_ENV === 'test';
 
   return {
     sourceMaps,

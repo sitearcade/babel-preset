@@ -25,21 +25,30 @@ const ifUses = (pkg, req) => (
   inUse.includes(pkg) ? req : null
 );
 
-const getTargets = (api) => {
+const getIsTest = (api) => {
   const isNodeEnvTest = process.env.NODE_ENV === 'test';
-  const isServer = api.caller((caller) => !!caller && caller.isServer);
   const isCallDev = api.caller((caller) => caller?.isDev);
-  const isTest = isCallDev == null && isNodeEnvTest;
+
+  return isCallDev == null && isNodeEnvTest;
+};
+
+const getIsDev = (api) => {
+  const isNodeEnvDev = process.env.NODE_ENV === 'development';
+  const isCallDev = api.caller((caller) => caller?.isDev);
+
+  return isCallDev === true || (isCallDev == null && isNodeEnvDev);
+};
+
+const getTargets = (api) => {
+  const isServer = api.caller((caller) => !!caller && caller.isServer);
+  const isTest = getIsTest(api);
 
   return isServer || isTest ? {node: true} : browsers;
 };
 
 const getReactOpts = (api) => {
-  const isNodeEnvTest = process.env.NODE_ENV === 'test';
-  const isNodeEnvDev = process.env.NODE_ENV === 'development';
-  const isCallDev = api.caller((caller) => caller?.isDev);
-  const isTest = isCallDev == null && isNodeEnvTest;
-  const isDev = isCallDev === true || (isCallDev == null && isNodeEnvDev);
+  const isTest = getIsTest(api);
+  const isDev = getIsDev(api);
 
   return {
     development: isTest || isDev,
