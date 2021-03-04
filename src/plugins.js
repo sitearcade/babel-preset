@@ -30,9 +30,18 @@ module.exports = compact([
   ifUses('date-fns', require('babel-plugin-date-fns')),
 
   // react
-  [require('babel-plugin-inline-react-svg'), {svgo: false}],
+  ifUses(
+    'react',
+    [require('babel-plugin-inline-react-svg'), {svgo: false}],
+  ),
 
   // styles
-  ifUses('polished', require('babel-plugin-polished')),
-  ifUses('styled-components', [require('babel-plugin-styled-components'), styledOpts]),
+  ifUses(
+    'polished',
+    require('babel-plugin-polished'),
+  ),
+  ifUses(
+    'styled-components',
+    [require('babel-plugin-styled-components'), styledOpts],
+  ),
 ]);

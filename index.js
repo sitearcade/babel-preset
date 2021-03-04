@@ -1,6 +1,6 @@
 // import
 
-const {getReactOpts, envOpts} = require('./src/utils');
+const {compact, getTargets, getReactOpts, envOpts, ifUses} = require('./src/utils');
 
 // export
 
@@ -9,23 +9,22 @@ module.exports = (api, {sourceMaps = true}) => {
   api.cache.using(() => process.env.NODE_ENV);
 
   return {
+    sourceMaps,
     // FIXME: [BABEL] .targets is not allowed in preset options
     // targets: getTargets(api),
 
     presets: [
       [require('@babel/preset-env'), envOpts],
-      require('@babel/preset-typescript'),
-      [require('@babel/preset-react'), getReactOpts(api)],
+      ifUses('typescript', require('@babel/preset-typescript')),
+      ifUses(
+        'react',
+        [require('@babel/preset-react'), getReactOpts(api)],
+      ),
     ],
 
-    plugins: require('./src/plugins'),
-
-    overrides: [
-      {
-        exclude: '**/*.test.js',
-        sourceMaps,
-        plugins: [sourceMaps && require('babel-plugin-source-map-support')],
-      },
-    ],
+    plugins: compact([
+      ...require('./src/plugins'),
+      sourceMaps && require('babel-plugin-source-map-support'),
+    ]),
   };
 };
