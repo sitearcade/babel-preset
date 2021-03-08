@@ -1,6 +1,6 @@
 // import
 
-const {compact, ifUses} = require('./utils');
+const {compact, uses} = require('./utils');
 
 // vars
 
@@ -16,6 +16,8 @@ const styledOpts = {ssr: true, fileName: false, pure: true};
 module.exports = compact([
   // core
   require('@sitearcade/dotenv/babel'),
+
+  !uses('next') &&
   [require('babel-plugin-module-resolver'), moduleOpts],
 
   // advanced
@@ -25,23 +27,15 @@ module.exports = compact([
   require('@babel/plugin-proposal-throw-expressions'),
 
   // libs
-  ifUses('ramda', require('babel-plugin-ramda')),
-  ifUses('lodash', require('babel-plugin-lodash')),
-  ifUses('date-fns', require('babel-plugin-date-fns')),
+  uses('ramda') && require('babel-plugin-ramda'),
+  uses('lodash') && require('babel-plugin-lodash'),
+  uses('date-fns') && require('babel-plugin-date-fns'),
+  uses('polished') && require('babel-plugin-polished'),
 
   // react
-  ifUses(
-    'react',
-    [require('babel-plugin-inline-react-svg'), {svgo: false}],
-  ),
+  uses('react') &&
+  [require('babel-plugin-inline-react-svg'), {svgo: false}],
 
-  // styles
-  ifUses(
-    'polished',
-    require('babel-plugin-polished'),
-  ),
-  ifUses(
-    'styled-components',
-    [require('babel-plugin-styled-components'), styledOpts],
-  ),
+  uses('styled-components') &&
+  [require('babel-plugin-styled-components'), styledOpts],
 ]);

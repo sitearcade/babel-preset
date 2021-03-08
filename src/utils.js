@@ -21,9 +21,7 @@ const inUse = [
 // fns
 
 const compact = (arr) => arr.filter(Boolean);
-const ifUses = (pkg, req) => (
-  inUse.includes(pkg) ? req : null
-);
+const uses = (pkg) => inUse.includes(pkg);
 
 const getIsTest = (api) => {
   const isNodeEnvTest = process.env.NODE_ENV === 'test';
@@ -58,4 +56,4 @@ const getReactOpts = (api) => {
 
 // export
 
-module.exports = {compact, ifUses, getTargets, getReactOpts, envOpts};
+module.exports = {compact, uses, getTargets, getReactOpts, envOpts};

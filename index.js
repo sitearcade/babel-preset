@@ -1,6 +1,6 @@
 // import
 
-const {compact, getReactOpts, envOpts, ifUses} = require('./src/utils');
+const {compact, getReactOpts, envOpts, uses} = require('./src/utils');
 
 // export
 
@@ -15,11 +15,10 @@ module.exports = (api, {sourceMaps = true}) => {
 
     presets: compact([
       [require('@babel/preset-env'), envOpts],
-      ifUses('typescript', require('@babel/preset-typescript')),
-      ifUses(
-        'react',
-        [require('@babel/preset-react'), getReactOpts(api)],
-      ),
+      uses('typescript') && require('@babel/preset-typescript'),
+
+      uses('react') &&
+      [require('@babel/preset-react'), getReactOpts(api)],
     ]),
 
     plugins: compact([
