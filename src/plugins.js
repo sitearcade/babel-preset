@@ -36,7 +36,7 @@ module.exports = compact([
   uses('react') &&
   [require('babel-plugin-inline-react-svg'), {svgo: false}],
 
-  uses('logrocket-react') &&
+  uses('react') &&
   require('babel-plugin-add-react-displayname'),
 
   uses('styled-components') &&
