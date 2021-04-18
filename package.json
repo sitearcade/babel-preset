@@ -1,6 +1,6 @@
 {
   "name": "@sitearcade/babel-preset",
-  "version": "1.1.10",
+  "version": "1.2.0",
   "description": "SiteArcade's babel presets.",
   "license": "MIT",
   "homepage": "https://www.sitearcade.com",
