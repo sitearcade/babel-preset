@@ -25,11 +25,5 @@ module.exports = (api, {sourceMaps = true}) => {
       ...require('./src/plugins'),
       !isTest && sourceMaps && require('babel-plugin-source-map-support'),
     ]),
-
-    env: {
-      test: {
-        plugins: [require('@babel/plugin-transform-modules-commonjs')],
-      },
-    },
   };
 };
