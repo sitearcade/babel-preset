@@ -19,14 +19,15 @@
     "test": "echo 'Seems fine...'"
   },
   "dependencies": {
-    "@babel/cli": "^7.13.14",
+    "@babel/cli": "^7.13.16",
     "@babel/node": "^7.13.13",
     "@babel/plugin-proposal-throw-expressions": "^7.12.13",
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
     "@sitearcade/browserslist-config": "0.3.1",
-    "@sitearcade/dotenv": "^1.0.3",
+    "@sitearcade/dotenv": "^1.1.3",
     "babel-plugin-add-react-displayname": "0.0.5",
     "babel-plugin-date-fns": "^2.0.0",
     "babel-plugin-inline-react-svg": "^2.0.1",
@@ -38,16 +39,14 @@
     "babel-plugin-source-map-support": "^2.1.3",
     "babel-plugin-styled-components": "^1.12.0",
     "find-config": "^1.0.0",
-    "next": "^10.1.3",
-    "source-map-support": "^0.5.19",
-    "styled-components": "^5.2.3"
+    "source-map-support": "^0.5.19"
   },
   "optionalDependencies": {
     "next": "^10.1.3",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
-    "@sitearcade/eslint-config": "1.4.1",
+    "@sitearcade/eslint-config": "1.5.2",
     "next": "^10.1.3",
     "styled-components": "^5.2.3"
   },
