@@ -34,9 +34,6 @@ module.exports = compact([
 
   // react
   uses('react') &&
-  [require('babel-plugin-inline-react-svg'), {svgo: false}],
-
-  uses('react') &&
   require('babel-plugin-add-react-displayname'),
 
   uses('styled-components') &&
